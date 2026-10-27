@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Mouse | AI-Powered Virtual Mouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-cyan-500 p-2 rounded-xl text-slate-950 font-bold">
+                    <i class="fa-solid fa-hand text-xl"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">GestureMouse</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-400">
+                <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+                <a href="#gestures" class="hover:text-cyan-400 transition">Gestures Guide</a>
+                <a href="#code" class="hover:text-cyan-400 transition">Python Code</a>
+            </nav>
+            <a href="#code" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-4 py-2 rounded-xl text-sm transition shadow-lg shadow-cyan-500/20">
+                Get Python Code
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 py-20 text-center">
+        <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-1.5 rounded-full text-xs text-cyan-400 mb-6">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span>Powered by Python, OpenCV & MediaPipe</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight">
+            Control Your PC Using <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Hand Gestures</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
+            A next-gen virtual mouse application that lets you move cursor, click, drag, scroll, and zoom using your webcam—no hardware required!
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="#code" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition shadow-xl shadow-cyan-500/25 flex items-center space-x-2">
+                <i class="fa-solid fa-download"></i>
+                <span>Download Script</span>
+            </a>
+            <a href="#gestures" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 font-medium px-8 py-3.5 rounded-xl transition">
+                View Controls Guide
+            </a>
+        </div>
+    </section>
+
+    <!-- Gestures Reference Section -->
+    <section id="gestures" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-900">
+        <h2 class="text-2xl font-bold mb-10 text-center">Gesture Controls Guide</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-arrow-pointer"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Cursor Move</h3>
+                <p class="text-slate-400 text-sm">Keep index finger open and move your hand naturally to control cursor coordinates smoothly.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-hand-pointer"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Left / Right Click</h3>
+                <p class="text-slate-400 text-sm">Bring thumb and index close for **Left Click**. Bring index and middle fingers close for **Right Click**.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Both Hands Zoom</h3>
+                <p class="text-slate-400 text-sm">Use index fingers of both hands. Move them apart to Zoom In or closer to Zoom Out.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Python Requirements & Setup -->
+    <section id="code" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-900">
+        <h2 class="text-2xl font-bold mb-6 text-center">How to Run Locally</h2>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+            <p class="text-slate-400 mb-4 text-sm">Run these commands in your terminal or command prompt to install dependencies and run the script:</p>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-sm text-cyan-400 mb-6 space-y-2">
+                <div>pip install opencv-python mediapipe pyautogui</div>
+                <div>python app.py</div>
+            </div>
+            <h3 class="font-semibold text-slate-200 mb-2">Requirements:</h3>
+            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
+                <li>Python 3.8+ installed</li>
+                <li>Webcam / Laptop Camera</li>
+                <li>`hand_landmarker.task` model file in your project folder</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 py-8 text-center text-slate-500 text-sm">
+        <p>Hand Gesture Mouse Project • Built with OpenCV & MediaPipe</p>
+    </footer>
+
+</body>
+</html>
