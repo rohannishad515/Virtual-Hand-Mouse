@@ -9,7 +9,6 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-white">
 
-    <!-- Header / Navbar -->
     <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -23,13 +22,13 @@
                 <a href="#gestures" class="hover:text-cyan-400 transition">Gestures Guide</a>
                 <a href="#code" class="hover:text-cyan-400 transition">Python Code</a>
             </nav>
-            <a href="#code" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-4 py-2 rounded-xl text-sm transition shadow-lg shadow-cyan-500/20">
-                Get Python Code
-            </a>
-        </div>
+           <a href="https://github.com/rohannishad515/Virtual-Hand-Mouse" target="_blank" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold px-6 py-3 rounded-xl flex items-center space-x-2 transition">
+               <i class="fa-brands fa-github"></i>
+               <span>Get Python Code</span>
+           </a>
+       </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="max-w-6xl mx-auto px-6 py-20 text-center">
         <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 px-4 py-1.5 rounded-full text-xs text-cyan-400 mb-6">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -42,66 +41,132 @@
             A next-gen virtual mouse application that lets you move cursor, click, drag, scroll, and zoom using your webcam—no hardware required!
         </p>
         <div class="mt-10 flex flex-wrap justify-center gap-4">
-            <a href="#code" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition shadow-xl shadow-cyan-500/25 flex items-center space-x-2">
+            
+            <!-- Download Script Button with JS Blob Force Download -->
+            <button onclick="downloadScript()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-3 rounded-xl flex items-center space-x-2 transition shadow-lg shadow-cyan-500/20 cursor-pointer">
                 <i class="fa-solid fa-download"></i>
                 <span>Download Script</span>
-            </a>
-            <a href="#gestures" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 font-medium px-8 py-3.5 rounded-xl transition">
-                View Controls Guide
-            </a>
+            </button>
+
+             <script>
+             function downloadScript() {
+                 const url = 'https://raw.githubusercontent.com/rohannishad515/Virtual-Hand-Mouse/main/app.py';
+                 fetch(url)
+                     .then(response => response.blob())
+                     .then(blob => {
+                         const blobUrl = window.URL.createObjectURL(blob);
+                         const a = document.createElement('a');
+                         a.href = blobUrl;
+                         a.download = 'app.py';
+                         document.body.appendChild(a);
+                         a.click();
+                         document.body.removeChild(a);
+                         window.URL.revokeObjectURL(blobUrl);
+                     })
+                     .catch(err => alert('Download failed! Please check your internet connection.'));
+             }
+             </script>
         </div>
     </section>
 
-    <!-- Gestures Reference Section -->
-    <section id="gestures" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-900">
+    <section id="gestures" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800">
         <h2 class="text-2xl font-bold mb-10 text-center">Gesture Controls Guide</h2>
         <div class="grid md:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-arrow-pointer"></i>
-                </div>
-                <h3 class="font-bold text-lg mb-2">Cursor Move</h3>
-                <p class="text-slate-400 text-sm">Keep index finger open and move your hand naturally to control cursor coordinates smoothly.</p>
+        
+        <!-- Card 1: Cursor Move -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-arrow-pointer"></i>
             </div>
-            <!-- Card 2 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-hand-pointer"></i>
-                </div>
-                <h3 class="font-bold text-lg mb-2">Left / Right Click</h3>
-                <p class="text-slate-400 text-sm">Bring thumb and index close for **Left Click**. Bring index and middle fingers close for **Right Click**.</p>
+            <h3 class="font-bold text-lg mb-2">Cursor Move</h3>
+            <p class="text-slate-400 text-sm">Keep index finger open and move your hand naturally to control cursor coordinates smoothly.</p>
+        </div>
+
+        <!-- Card 2: Left / Right Click -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-hand-pointer"></i>
             </div>
-            <!-- Card 3 -->
-            <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
-                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
-                    <i class="fa-solid fa-expand"></i>
+            <h3 class="font-bold text-lg mb-2">Left / Right Click</h3>
+            <p class="text-slate-400 text-sm">Bring thumb and index close for <strong>Left Click</strong>. Bring index and middle fingers close for <strong>Right Click</strong>.</p>
+        </div>
+
+        <!-- Card 3: Both Hands Zoom -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-expand"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Both Hands Zoom</h3>
+            <p class="text-slate-400 text-sm">Use index fingers of both hands. Move them apart to Zoom In or closer to Zoom Out.</p>
+        </div>
+
+        <!-- Card 4: Page Scrolling -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-arrows-up-down"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Page Scrolling</h3>
+            <p class="text-slate-400 text-sm">Raise index and middle fingers together and move them up or down to scroll smoothly.</p>
+        </div>
+
+        <!-- Card 5: Drag & Drop -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-hand-holding"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Drag & Drop</h3>
+            <p class="text-slate-400 text-sm">Keep thumb and index finger closed tightly and move your hand to drag files or windows.</p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Installation & Setup Guide Section -->
+<section id="installation" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800">
+    <h2 class="text-2xl font-bold mb-10 text-center">How to Run the Script</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-4">1</div>
+            <h3 class="font-bold text-lg mb-2">Download Script</h3>
+            <p class="text-slate-400 text-sm">Click the <strong>Download Script</strong> button above to save the <code>app.py</code> file on your computer.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-4">2</div>
+            <h3 class="font-bold text-lg mb-2">Install Requirements</h3>
+            <p class="text-slate-400 text-sm">Open your terminal or command prompt and run this command to install required libraries:<br>
+            <code class="text-cyan-400 bg-slate-950 px-2 py-1 rounded mt-2 inline-block">pip install opencv-python mediapipe pyautogui</code></p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-4">3</div>
+            <h3 class="font-bold text-lg mb-2">Run the Program</h3>
+            <p class="text-slate-400 text-sm">Navigate to the folder where you downloaded the file and run it using Python:<br>
+            <code class="text-cyan-400 bg-slate-950 px-2 py-1 rounded mt-2 inline-block">python app.py</code></p>
+        </div>
+
+        <!-- Step 2: Requirements -->
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-4">
+                    <i class="fa-solid fa-list-check text-base"></i>
                 </div>
-                <h3 class="font-bold text-lg mb-2">Both Hands Zoom</h3>
-                <p class="text-slate-400 text-sm">Use index fingers of both hands. Move them apart to Zoom In or closer to Zoom Out.</p>
+                <h3 class="font-bold text-lg mb-2">Requirements</h3>
+                <ul class="text-slate-400 text-sm space-y-1 list-disc list-inside">
+                    <li>Python 3.8+ installed</li>
+                    <li>Webcam / Laptop Camera</li>
+                    <li><code>hand_landmarker.task</code> model file</li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Python Requirements & Setup -->
-    <section id="code" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-900">
-        <h2 class="text-2xl font-bold mb-6 text-center">How to Run Locally</h2>
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
-            <p class="text-slate-400 mb-4 text-sm">Run these commands in your terminal or command prompt to install dependencies and run the script:</p>
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-sm text-cyan-400 mb-6 space-y-2">
-                <div>pip install opencv-python mediapipe pyautogui</div>
-                <div>python app.py</div>
-            </div>
-            <h3 class="font-semibold text-slate-200 mb-2">Requirements:</h3>
-            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                <li>Python 3.8+ installed</li>
-                <li>Webcam / Laptop Camera</li>
-                <li>`hand_landmarker.task` model file in your project folder</li>
-            </ul>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-900 py-8 text-center text-slate-500 text-sm">
         <p>Hand Gesture Mouse Project • Built with OpenCV & MediaPipe</p>
     </footer>
